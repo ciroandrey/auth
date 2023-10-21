@@ -1,21 +1,12 @@
-# Auth Mock
+# Auth
+Spring Boot 2.7.17 
+Java 11. 
+Maven 3.6.3.
 
-Esta é uma aplicação Spring Boot que utiliza a versão 2.7.17 do Spring Framework e Java 11. A construção e gestão de dependências são feitas com o Maven 3.6.3.
+## Swagger UI: [Swagger UI](http://localhost:8080/api/swagger-ui/index.html).
+## H2 Console: [H2 Console](http://localhost:8080/api/h2-console).
 
-## Acesso ao Swagger UI
+- **Usuário:** sa
+- **Senha:** (deixe em branco)
+- **URL do Banco:** jdbc:h2:mem:testdb
 
-Você pode acessar a documentação da API utilizando o Swagger UI através do seguinte link: [Swagger UI](http://localhost:8080/api/swagger-ui/index.html).
-
-Lembre-se de que você deve iniciar a aplicação para poder acessar a documentação.
-
-## Pré-requisitos
-
-- Java 11
-- Maven 3.6.3
-
-## Como Executar
-
-1. Clone este repositório.
-2. Abra o projeto em sua IDE de preferência.
-3. Execute a aplicação Spring Boot.
-4. Acesse o Swagger UI no link fornecido acima.

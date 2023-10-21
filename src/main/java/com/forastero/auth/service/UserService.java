@@ -7,14 +7,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
 public class UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -42,13 +45,4 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    @PostConstruct
-    void seedUser(){
-        createUser(
-                User.builder()
-                        .username("ciro")
-                        .email("ciroandrey@outlook.com")
-                        .build()
-        );
-    }
 }
