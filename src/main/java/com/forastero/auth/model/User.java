@@ -1,12 +1,21 @@
 package com.forastero.auth.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
+@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -17,9 +26,5 @@ public class User {
     private String username;
 
     private String email;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }

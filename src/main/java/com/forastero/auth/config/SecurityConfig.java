@@ -15,15 +15,15 @@ public class SecurityConfig extends org.springframework.security.config.annotati
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/h2-console/**").permitAll()
-                .anyRequest().authenticated()
+        http
+                .authorizeRequests()
+                .antMatchers("/**").permitAll()
                 .and()
-                .formLogin().disable()
-                .logout().disable();
-
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
+                .csrf().disable()
+                .headers().frameOptions().disable();
+        http
+                .httpBasic().disable()
+                .formLogin().disable();
     }
 
     @Bean
