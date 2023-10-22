@@ -3,13 +3,10 @@ package com.forastero.auth.controller;
 import com.forastero.auth.model.User;
 import com.forastero.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
-@ComponentScan
 @RestController
 @RequestMapping("/users")
 public class UserController {
