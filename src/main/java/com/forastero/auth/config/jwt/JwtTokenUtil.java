@@ -14,7 +14,7 @@ import java.util.Map;
 public class JwtTokenUtil {
 
     private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60; // 5 hours
-    private static final String SECRET = "Klaatu barada nikto";
+    private static final String SECRET = "Klaatubaradanikto";
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();

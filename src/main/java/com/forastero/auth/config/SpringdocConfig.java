@@ -1,8 +1,8 @@
 package com.forastero.auth.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springdoc.core.GroupedOpenApi;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SpringdocConfig {
