@@ -29,15 +29,25 @@ public class InitialSeed {
         // Criando roles
         roleService.createRoleIfNotExists("ROLE_ADMIN");
         roleService.createRoleIfNotExists("ROLE_USER");
+        roleService.createRoleIfNotExists("ROLE_GUEST");
         Set<Role> adminRole = roleService.findAllByName("ROLE_ADMIN");
         Set<Role> userRole = roleService.findAllByName("ROLE_USER");
+        Set<Role> guestRole = roleService.findAllByName("ROLE_GUEST");
         adminRole.addAll(userRole);
 
         // Criando users
         accountService.saveUser(
                 CreateUserDTO.builder()
-                        .username("potato")
-                        .email("potato@outlook.com")
+                        .username("guest")
+                        .email("guest@outlook.com")
+                        .password("123")
+                        .roles(new HashSet<>(guestRole))
+                        .build()
+        );
+        accountService.saveUser(
+                CreateUserDTO.builder()
+                        .username("user")
+                        .email("user@outlook.com")
                         .password("123")
                         .roles(new HashSet<>(userRole))
                         .build()

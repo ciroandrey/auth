@@ -1,7 +1,6 @@
 package com.forastero.auth.config;
 
 import com.forastero.auth.config.jwt.JwtRequestFilter;
-import com.forastero.auth.model.User;
 import com.forastero.auth.repository.UserRepository;
 import com.forastero.auth.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/swagger-ui/**", "/v3/**",
                         "/h2-console/**", "/account/authenticate").permitAll()
-                .anyRequest().authenticated()
                 .and()
                 .csrf().disable().headers().frameOptions().disable()
                 .and()
