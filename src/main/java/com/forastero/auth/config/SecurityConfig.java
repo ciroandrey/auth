@@ -68,7 +68,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and();
 
-
         http = http
                 .exceptionHandling()
                 .authenticationEntryPoint(
@@ -81,7 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/swagger-ui/**", "/v3/**",
                         "/h2-console/**", "/account/authenticate").permitAll()
-                .antMatchers("/users/**").authenticated()
+                .antMatchers("/users/**").hasRole("ADMIN")
                 .and()
                 .csrf().disable()
                 .headers().frameOptions().disable()

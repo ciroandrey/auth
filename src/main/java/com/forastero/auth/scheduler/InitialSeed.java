@@ -27,10 +27,10 @@ public class InitialSeed {
     @PostConstruct
     public void init() {
         // Criando roles
-        roleService.createRoleIfNotExists("ROLE_ADMIN");
-        roleService.createRoleIfNotExists("ROLE_USER");
-        Set<Role> adminRole = roleService.findAllByName("ROLE_ADMIN");
-        Set<Role> userRole = roleService.findAllByName("ROLE_USER");
+        roleService.createRoleIfNotExists("ADMIN");
+        roleService.createRoleIfNotExists("USER");
+        Set<Role> adminRole = roleService.findAllByName("ADMIN");
+        Set<Role> userRole = roleService.findAllByName("USER");
         adminRole.addAll(userRole);
 
         // Criando users
