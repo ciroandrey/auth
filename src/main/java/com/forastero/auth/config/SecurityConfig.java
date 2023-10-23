@@ -78,11 +78,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         (request, response, ex) -> {
                             response.sendError(
                                     HttpServletResponse.SC_UNAUTHORIZED,
-                                    ex.getMessage()
-                            );
-                        }
-                )
-                .and();
+                                    ex.getMessage());
+                        }).and();
 
         http.authorizeRequests()
                 .antMatchers("/swagger-ui/**", "/v3/**",

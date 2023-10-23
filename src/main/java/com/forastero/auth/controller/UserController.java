@@ -2,7 +2,6 @@ package com.forastero.auth.controller;
 
 import com.forastero.auth.model.User;
 import com.forastero.auth.service.UserService;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
