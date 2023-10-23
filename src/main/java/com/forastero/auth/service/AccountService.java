@@ -35,6 +35,7 @@ public class AccountService {
         user.setEmail(newUser.getEmail());
         user.setUsername(newUser.getUsername());
         user.setPassword(newUser.getPassword());
+        user.setRoles(newUser.getRoles());
         if (userRepository.findByUsername(user.getUsername()) != null) {
             throw new UserAlreadyExistsException("User with this username already exists");
         }
