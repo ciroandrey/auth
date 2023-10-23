@@ -21,7 +21,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -60,8 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         });
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //http = http.cors().and().csrf().disable();
@@ -97,7 +94,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 UsernamePasswordAuthenticationFilter.class
         );
     }
-
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
