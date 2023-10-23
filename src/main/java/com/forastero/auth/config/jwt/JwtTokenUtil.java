@@ -5,10 +5,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class JwtTokenUtil {
@@ -17,13 +20,25 @@ public class JwtTokenUtil {
     private static final String SECRET = "Kl@@tu_6@r@d@_n1kt0";
 
     public String generateToken(UserDetails userDetails) {
+        Set<String> userRoles = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toSet());
+
         Map<String, Object> claims = new HashMap<>();
-        return doGenerateToken(claims, userDetails.getUsername());
+        return doGenerateToken(claims, userDetails.getUsername(), userRoles);
     }
 
-    private String doGenerateToken(Map<String, Object> claims, String subject) {
+    private String doGenerateToken(Map<String,
+                                    Object> claims,
+                                   String subject,
+                                   Set<String> userRoles) {
         Date now = new Date();
         Date validity = new Date(now.getTime() + JWT_TOKEN_VALIDITY * 1000);
+
+        claims.put("sub", subject);
+        claims.put("iat", now);
+        claims.put("exp", validity);
+        claims.put("roles", userRoles);
 
         return Jwts.builder()
                 .setClaims(claims)
